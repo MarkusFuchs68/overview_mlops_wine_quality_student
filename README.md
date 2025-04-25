@@ -190,3 +190,7 @@ You can run the pipeline through the command `dvc repro`.
 Congratulations! 🎉 Now that you have a structured and well-defined MLOps project you're ready for the next step which is the creation of the API.
 
 Each step is modularized, making it easy to maintain, extend, and scale your Machine Learning pipeline. 
+
+### The app
+Start the app by executing from the repo root folder:
+`python src/app/app.py`
