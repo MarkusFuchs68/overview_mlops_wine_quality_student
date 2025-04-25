@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wine Prediction</title>
+</head>
+<body>
+    <h2>Weinqualität vorhersagen</h2>
+    <form id="predictForm">
+        <input type="number" step="any" name="fixed_acidity" placeholder="Fixed Acidity" required><br>
+        <input type="number" step="any" name="volatile_acidity" placeholder="Volatile Acidity" required><br>
+        <input type="number" step="any" name="citric_acid" placeholder="Citric Acid" required><br>
+        <input type="number" step="any" name="residual_sugar" placeholder="Residual Sugar" required><br>
+        <input type="number" step="any" name="chlorides" placeholder="Chlorides" required><br>
+        <input type="number" step="any" name="free_sulfur_dioxide" placeholder="Free SO2" required><br>
+        <input type="number" step="any" name="total_sulfur_dioxide" placeholder="Total SO2" required><br>
+        <input type="number" step="any" name="density" placeholder="Density" required><br>
+        <input type="number" step="any" name="pH" placeholder="pH" required><br>
+        <input type="number" step="any" name="sulphates" placeholder="Sulphates" required><br>
+        <input type="number" step="any" name="alcohol" placeholder="Alcohol" required><br>
+        <button type="submit">Vorhersagen</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        document.getElementById("predictForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const token = localStorage.getItem("access_token");
+
+            const response = await fetch("/predict", {
+                method: "POST",
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                },
+                body: formData
+            });
+
+            const html = await response.text();
+            document.open();
+            document.write(html);
+            document.close();
+        });
+    </script>
+</body>
+</html>

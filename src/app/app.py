@@ -130,6 +130,7 @@ async def home_page(request: Request):
 async def login_page(request: Request):
     return templates.TemplateResponse("login.html", {"request": request})
 
+'''
 @app.post("/token", response_class=HTMLResponse)
 async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends()):
     username = form_data.username
@@ -140,6 +141,23 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
             token_data = {"sub": username}
             access_token = create_access_token(token_data, expires_delta=timedelta(minutes=30))
             return templates.TemplateResponse("index.html", {"request": {}, "token": access_token})
+    raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid credentials")
+'''
+
+@app.get("/form", response_class=HTMLResponse)
+async def form_page(request: Request):
+    return templates.TemplateResponse("form.html", {"request": request})
+
+@app.post("/token", response_model=Token)
+async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends()):
+    username = form_data.username
+    password = form_data.password
+    users = load_users()
+    for user in users:
+        if user.username == username and verify_password(password, user.password):
+            token_data = {"sub": username}
+            access_token = create_access_token(token_data, expires_delta=timedelta(minutes=30))
+            return {"access_token": access_token, "token_type": "bearer"}
     raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid credentials")
 
 @app.post("/register", response_model=UserOut)
@@ -173,7 +191,9 @@ async def predict(
 ):
     try:
         # Validate the user
+        print('validating user')
         current_user = get_current_user(token)
+        print('making wine features')
         # Create a WineFeatures instance with the form data
         features = WineFeatures(
             fixed_acidity=fixed_acidity,
