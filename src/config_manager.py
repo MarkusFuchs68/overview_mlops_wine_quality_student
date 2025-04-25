@@ -94,7 +94,8 @@ class ConfigurationManager:
             model_path=config.model_path,
             metric_file_name=config.metric_file_name,
             all_params=params,
-            mlflow_uri="https://dagshub.com/MarkusFuchs68/overview_mlops_wine_quality_student",  # make sure to update this information
+            # make sure to update this information from Remote/Experiments/MLFlow Tracking remote, however we don't need it actually because of dagshub.init()
+            mlflow_uri="https://dagshub.com/MarkusFuchs68/overview_mlops_wine_quality_student.mlflow",
         )
 
         return model_evaluation_config
