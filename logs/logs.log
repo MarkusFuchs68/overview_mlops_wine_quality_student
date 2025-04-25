@@ -81,3 +81,60 @@ x=======x
 2025-04-25 11:21:36,122 - custom_logger - INFO - >>>>> stage Model evaluation stage completed <<<<< 
 
  x========x
+2025-04-25 11:37:02,597 - custom_logger - INFO - Custom logger module initialized.
+2025-04-25 11:37:04,089 - custom_logger - INFO - Parent folder: /Users/markusfuchs/Development/Machine Learning Engineer/overview_mlops_wine_quality_student
+2025-04-25 11:37:04,089 - custom_logger - INFO - >>>>> stage Data Ingestion stage started <<<<<
+2025-04-25 11:37:04,096 - custom_logger - INFO - yaml file: src/config.yaml loaded successfully
+2025-04-25 11:37:04,105 - custom_logger - INFO - yaml file: src/models_module_def/params.yaml loaded successfully
+2025-04-25 11:37:04,112 - custom_logger - INFO - yaml file: src/data_module_def/schema.yaml loaded successfully
+2025-04-25 11:37:04,115 - custom_logger - INFO - created directory at: data/raw
+2025-04-25 11:37:04,116 - custom_logger - INFO - File already exists.
+2025-04-25 11:37:04,128 - custom_logger - INFO - >>>>> stage Data Ingestion stage completed <<<<<
+
+x=======x
+2025-04-25 11:37:04,647 - custom_logger - INFO - Custom logger module initialized.
+2025-04-25 11:37:07,659 - custom_logger - INFO - >>>>> stage Data Validation stage started <<<<<
+2025-04-25 11:37:07,668 - custom_logger - INFO - yaml file: src/config.yaml loaded successfully
+2025-04-25 11:37:07,671 - custom_logger - INFO - yaml file: src/models_module_def/params.yaml loaded successfully
+2025-04-25 11:37:07,674 - custom_logger - INFO - yaml file: src/data_module_def/schema.yaml loaded successfully
+2025-04-25 11:37:07,675 - custom_logger - INFO - created directory at: data
+2025-04-25 11:37:07,740 - custom_logger - INFO - >>>>> stage Data Validation stage completed <<<<<
+
+x=======x
+2025-04-25 11:37:08,388 - custom_logger - INFO - Custom logger module initialized.
+2025-04-25 11:37:13,378 - custom_logger - INFO - >>>>> stage Data Transformation stage started <<<<<
+2025-04-25 11:37:13,387 - custom_logger - INFO - yaml file: src/config.yaml loaded successfully
+2025-04-25 11:37:13,389 - custom_logger - INFO - yaml file: src/models_module_def/params.yaml loaded successfully
+2025-04-25 11:37:13,391 - custom_logger - INFO - yaml file: src/data_module_def/schema.yaml loaded successfully
+2025-04-25 11:37:13,391 - custom_logger - INFO - created directory at: data/processed
+2025-04-25 11:37:13,461 - custom_logger - INFO - Splitted data into training and test sets
+2025-04-25 11:37:13,461 - custom_logger - INFO - X_train shape: (1279, 11), y_train shape: (1279,)
+2025-04-25 11:37:13,462 - custom_logger - INFO - X_test shape: (320, 11), y_test shape: (320,)
+2025-04-25 11:37:13,462 - custom_logger - INFO - >>>>> stage Data Transformation stage completed <<<<<
+
+x=======x
+2025-04-25 11:37:14,505 - custom_logger - INFO - Custom logger module initialized.
+2025-04-25 11:37:16,140 - custom_logger - INFO - >>>>> stage Model trainer stage started <<<<<
+2025-04-25 11:37:16,157 - custom_logger - INFO - yaml file: src/config.yaml loaded successfully
+2025-04-25 11:37:16,160 - custom_logger - INFO - yaml file: src/models_module_def/params.yaml loaded successfully
+2025-04-25 11:37:16,163 - custom_logger - INFO - yaml file: src/data_module_def/schema.yaml loaded successfully
+2025-04-25 11:37:16,163 - custom_logger - INFO - created directory at: models
+2025-04-25 11:37:16,191 - custom_logger - INFO - >>>>> stage Model trainer stage completed <<<<< 
+
+ x========x
+2025-04-25 11:37:16,808 - custom_logger - INFO - Custom logger module initialized.
+2025-04-25 11:37:24,087 - httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+2025-04-25 11:37:24,095 - dagshub - INFO - Accessing as MarkusFuchs68
+2025-04-25 11:37:24,323 - httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/MarkusFuchs68/overview_mlops_wine_quality_student "HTTP/1.1 200 OK"
+2025-04-25 11:37:24,511 - httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+2025-04-25 11:37:24,516 - dagshub - INFO - Initialized MLflow to track repo "MarkusFuchs68/overview_mlops_wine_quality_student"
+2025-04-25 11:37:24,517 - dagshub - INFO - Repository MarkusFuchs68/overview_mlops_wine_quality_student initialized!
+2025-04-25 11:37:24,517 - custom_logger - INFO - >>>>> stage Model evaluation stage started <<<<<
+2025-04-25 11:37:24,531 - custom_logger - INFO - yaml file: src/config.yaml loaded successfully
+2025-04-25 11:37:24,532 - custom_logger - INFO - yaml file: src/models_module_def/params.yaml loaded successfully
+2025-04-25 11:37:24,535 - custom_logger - INFO - yaml file: src/data_module_def/schema.yaml loaded successfully
+2025-04-25 11:37:24,536 - custom_logger - INFO - created directory at: metrics
+2025-04-25 11:37:25,355 - custom_logger - INFO - json file saved at: metrics/metrics.json
+2025-04-25 11:37:37,718 - custom_logger - INFO - >>>>> stage Model evaluation stage completed <<<<< 
+
+ x========x

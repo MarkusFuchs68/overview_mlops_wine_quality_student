@@ -40,7 +40,6 @@ class ModelEvaluation:
             # Saving metrics as local
             scores = {"rmse": rmse, "mae": mae, "r2": r2}
             save_json(path=Path(self.config.metric_file_name), data=scores)
-            print('logging MLFlow params')
             mlflow.log_params(self.config.all_params)
 
             mlflow.log_metric("rmse", rmse)
@@ -52,9 +51,7 @@ class ModelEvaluation:
 
                 # Register the model
                 # There are other ways to use the Model Registry, which depends on the use case.
-                print('logging MLFlow model')
                 mlflow.sklearn.log_model(model, "model", registered_model_name="ElasticnetModel")
-#                mlflow.sklearn.log_model(model, "model", registered_model_name=None)
 
             else:
                 mlflow.sklearn.log_model(model, "model") 
