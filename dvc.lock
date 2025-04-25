@@ -1,4 +1,4 @@
-schema: '2.0'
+dschema: '2.0'
 stages:
   data_ingestion:
     cmd: python src/pipeline_steps/stage01_data_ingestion.py
